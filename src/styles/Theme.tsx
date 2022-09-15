@@ -1,12 +1,12 @@
-import { DefaultTheme, ThemeProvider } from "styled-components";
 import { ReactNode } from "react";
+import { DefaultTheme, ThemeProvider } from "styled-components";
 
 interface ThemeProps {
   children: ReactNode;
 }
 
 export const Theme = ({ children }: ThemeProps) => {
-  const theme: DefaultTheme = {
+  const defaultTheme: DefaultTheme = {
     colors: {
       blue_900: "#00072d",
       blue_800: "#001c55",
@@ -15,5 +15,6 @@ export const Theme = ({ children }: ThemeProps) => {
       blue_100: "#a6e1fa",
     },
   };
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+
+  return <ThemeProvider theme={defaultTheme}>{children}</ThemeProvider>;
 };
