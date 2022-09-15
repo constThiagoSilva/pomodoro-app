@@ -6,6 +6,12 @@ export const Container = styled.button`
 
     border-radius: 50%;
     
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: x-large;
+
     color: #fff;
     background-color: ${({theme}) => theme.colors.blue_700};
 
