@@ -1,11 +1,11 @@
 import { ThemeProvider } from "styled-components";
-import { theme } from "./styles/theme";
+import { Theme } from "./styles/Theme";
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <Theme>
       <div className="App">Hello</div>
-    </ThemeProvider>
+    </Theme>
   );
 }
 
