@@ -15,5 +15,9 @@ export const Container = styled.button`
     color: #fff;
     background-color: ${({theme}) => theme.colors.blue_700};
 
-    box-shadow: rgba(166,225,250, 0.9)  0px 8px 24px;
+    transition: all .2s;
+
+    &:hover {
+        filter: brightness(0.9);
+    }
 `
