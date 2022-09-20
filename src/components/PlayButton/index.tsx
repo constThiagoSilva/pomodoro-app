@@ -12,9 +12,9 @@ export const PlayButton = ({isPlayed, setIsPlayed}: PlayButton) => {
     return (
         <Container onClick={() => setIsPlayed(!isPlayed)}>
             {isPlayed ? (
-                <Play/>
-            ): (
                 <Pause/>
+                ): (
+                <Play/>
             )}
         </Container>
     )
