@@ -4,15 +4,14 @@ import { ITimerContext, TimerContext } from "../../context/TimerContext";
 import { Container, Content, Timer } from "./styles";
 
 export const MainPage = () => {
-  const { time, setMode, mode } = useContext(TimerContext) as ITimerContext;
-  const [minutesLeft, setMinutesLeft] = useState(time);
+  const { setMode, mode,breakTime,workTime } = useContext(TimerContext) as ITimerContext;
+  const [minutesLeft, setMinutesLeft] = useState(workTime);
   const [secondsLeft, setSecondsLeft] = useState(0);
   const [isPlayed, setIsPlayed] = useState(false);
 
   useEffect(() => {
     let interval = setInterval(() => {
       if (isPlayed) {
-        console.log("alo");
         clearInterval(interval);
 
         if (secondsLeft === 0) {
@@ -22,7 +21,14 @@ export const MainPage = () => {
           } else {
             if (mode === 'work') {
                 setMode('break')
-                
+
+                setMinutesLeft(breakTime)
+                setIsPlayed(false)
+            } else {
+                setMode('work')
+
+                setMinutesLeft(workTime)
+                setIsPlayed(false)
             }
           }
         } else {
