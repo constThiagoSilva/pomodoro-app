@@ -1,15 +1,18 @@
 import { ThemeProvider } from "styled-components";
 import { PlayButton } from "./components/PlayButton";
+import { TimerProvider } from "./context/TimerContext";
 import { MainPage } from "./pages/Main";
 import { Theme } from "./styles/Theme";
 
 function App() {
   return (
-    <Theme>
-      <div>
-        <MainPage />
-      </div>
-    </Theme>
+    <TimerProvider>
+      <Theme>
+        <div>
+          <MainPage />
+        </div>
+      </Theme>
+    </TimerProvider>
   );
 }
 
