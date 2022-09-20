@@ -6,6 +6,7 @@ export const MainPage = () => {
     const [minutes, setMinutes] = useState(10);
     const [minutesLeft, setMinutesLeft] = useState(2);
     const [secondsLeft, setSecondsLeft] = useState(0);
+    const [isPlayed, setIsPlayed] = useState(false);
 
     useEffect(() => {
         let interval = setInterval(() => {
@@ -31,7 +32,7 @@ export const MainPage = () => {
                         {minutesLeft < 9 ? `0${minutesLeft}` : minutesLeft}:{secondsLeft < 9 ? `0${secondsLeft}` : secondsLeft}
                     </span>
                 </Timer>
-                <PlayButton/>
+                <PlayButton isPlayed={isPlayed} setIsPlayed={setIsPlayed}/>
             </Content>
         </Container>
     )
