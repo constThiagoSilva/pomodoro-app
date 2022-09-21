@@ -54,3 +54,7 @@ export const Timer = styled.div`
     }
 
 `
+
+export const SettingsContainer = styled.div`
+
+`

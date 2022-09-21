@@ -5,6 +5,8 @@ export interface ITimerContext {
     breakTime: number;
     mode: 'work' | 'break'
     setMode: React.Dispatch<React.SetStateAction<'work' | 'break'>>
+    setWorkTime: React.Dispatch<React.SetStateAction<number>>
+    setBreakTime: React.Dispatch<React.SetStateAction<number>>
 }
 interface TimerProviderProps {
     children: ReactNode
@@ -18,7 +20,7 @@ export const TimerProvider = ({children}: TimerProviderProps) => {
     const [breakTime, setBreakTime] = useState(2);
 
     return (
-        <TimerContext.Provider value={{mode, setMode, workTime, breakTime }}>
+        <TimerContext.Provider value={{mode, setMode, workTime, breakTime, setBreakTime, setWorkTime }}>
             {children}
         </TimerContext.Provider>
     )
