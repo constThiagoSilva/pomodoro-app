@@ -45,6 +45,9 @@ export const MainPage = () => {
           <span>
             {minutesLeft < 10 ? `0${minutesLeft}` : minutesLeft}:
             {secondsLeft < 10 ? `0${secondsLeft}` : secondsLeft}
+            <h1>
+            {mode === 'work' ? 'Work mode' : 'Break mode'}
+            </h1>
           </span>
         </Timer>
         <PlayButton isPlayed={isPlayed} setIsPlayed={setIsPlayed} />

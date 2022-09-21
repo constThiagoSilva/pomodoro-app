@@ -35,10 +35,22 @@ export const Timer = styled.div`
     border: 10px solid ${({theme}) => theme.colors.blue_700};
 
     span {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+
         font-size: x-large;
         font-weight: bold;
 
         color: #fff;
+
+        h1 {
+            font-size: small;
+        }
     }
 
 `
