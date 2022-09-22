@@ -1,7 +1,5 @@
-import { ThemeProvider } from "styled-components";
-import { PlayButton } from "./components/PlayButton";
+import { Pomodoro } from "./components/Pomodoro";
 import { TimerProvider } from "./context/TimerContext";
-import { MainPage } from "./pages/Main";
 import { Theme } from "./styles/Theme";
 
 function App() {
@@ -9,7 +7,7 @@ function App() {
     <TimerProvider>
       <Theme>
         <div>
-          <MainPage />
+          <Pomodoro />
         </div>
       </Theme>
     </TimerProvider>

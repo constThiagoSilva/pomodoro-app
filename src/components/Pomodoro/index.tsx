@@ -5,7 +5,7 @@ import { SettingsModal } from "../SettingsModal";
 import { Container, Content, SettingsContainer, Timer } from "./styles";
 import { IoSettingsSharp as Settings } from "react-icons/io5";
 
-export const MainPage = () => {
+export const Pomodoro = () => {
   const { setMode, mode, breakTime, workTime } = useContext(
     TimerContext
   ) as ITimerContext;
