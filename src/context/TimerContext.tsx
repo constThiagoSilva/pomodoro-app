@@ -16,7 +16,7 @@ export const TimerContext = createContext<ITimerContext | null>(null)
 
 export const TimerProvider = ({children}: TimerProviderProps) => {
     const [mode, setMode] = useState<'work' | 'break'>('work');
-    const [workTime, setWorkTime] = useState(1);
+    const [workTime, setWorkTime] = useState(3);
     const [breakTime, setBreakTime] = useState(2);
 
     return (

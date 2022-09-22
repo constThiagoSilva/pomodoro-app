@@ -3,6 +3,7 @@ import { PlayButton } from "../../components/PlayButton";
 import { ITimerContext, TimerContext } from "../../context/TimerContext";
 import { Container, Content, Timer, SettingsContainer } from "./styles";
 import { IoSettingsSharp as Settings } from "react-icons/io5";
+import { SettingsModal } from "../../components/SettingsModal";
 
 export const MainPage = () => {
   const { setMode, mode, breakTime, workTime } = useContext(
@@ -11,35 +12,56 @@ export const MainPage = () => {
   const [minutesLeft, setMinutesLeft] = useState(workTime);
   const [secondsLeft, setSecondsLeft] = useState(0);
   const [isPlayed, setIsPlayed] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleCloseModal = () => {
+      setIsPlayed(false)
+      setIsOpen(false)
+    }
+
 
   useEffect(() => {
-    let interval = setInterval(() => {
-      if (isPlayed) {
-        clearInterval(interval);
-
-        if (secondsLeft === 0) {
-          if (minutesLeft !== 0) {
-            setSecondsLeft(59);
-            setMinutesLeft(minutesLeft - 1);
-          } else {
-            if (mode === "work") {
-              setMode("break");
-
-              setMinutesLeft(breakTime);
-              setIsPlayed(false);
+    if (isPlayed) {
+      let interval = setInterval(() => {
+          clearInterval(interval);
+  
+          if (secondsLeft === 0) {
+            if (minutesLeft !== 0) {
+              setSecondsLeft(59);
+              setMinutesLeft(minutesLeft - 1);
             } else {
-              setMode("work");
-
-              setMinutesLeft(workTime);
-              setIsPlayed(false);
+              if (mode === "work") {
+                setMode("break");
+  
+                setMinutesLeft(breakTime);
+                setIsPlayed(false);
+              } else {
+                setMode("work");
+  
+                setMinutesLeft(workTime);
+                setIsPlayed(false);
+              }
             }
+          } else {
+            setSecondsLeft(secondsLeft - 1);
           }
-        } else {
-          setSecondsLeft(secondsLeft - 1);
-        }
-      }
-    }, 1000);
-  }, [secondsLeft, isPlayed]);
+      }, 1000);
+    } else {
+      console.log('pauyseee')
+    }
+  }, []);
+
+  useEffect(() => {
+    if (mode === 'work') {
+      setSecondsLeft(0)
+      setMinutesLeft(workTime)
+    }
+    else {
+      setSecondsLeft(0)
+      setMinutesLeft(breakTime)
+    }
+    
+  }, [workTime, breakTime]);
 
   return (
     <Container>
@@ -53,9 +75,10 @@ export const MainPage = () => {
         </Timer>
         <PlayButton isPlayed={isPlayed} setIsPlayed={setIsPlayed} />
         <SettingsContainer>
-          <Settings />
+          <Settings onClick={() => setIsOpen(true)}/>
         </SettingsContainer>
       </Content>
+      <SettingsModal isOpen={isOpen} closeModal={handleCloseModal}/>
     </Container>
   );
 };
