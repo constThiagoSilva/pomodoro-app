@@ -32,7 +32,9 @@ export const Timer = styled.div`
     justify-content: center;
     align-items: center;
 
-    border: 10px solid ${({theme}) => theme.colors.blue_700};
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 8px 24px;
+
+    background-color: ${({theme}) => theme.colors.blue_900};
 
     span {
         width: 100%;

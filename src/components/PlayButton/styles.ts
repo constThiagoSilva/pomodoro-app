@@ -13,7 +13,9 @@ export const Container = styled.button`
     font-size: x-large;
 
     color: #fff;
-    background-color: ${({theme}) => theme.colors.blue_700};
+    background-color: ${({theme}) => theme.colors.blue_900};
+
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 8px 24px;
 
     transition: all .2s;
 
