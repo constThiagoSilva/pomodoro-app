@@ -13,13 +13,19 @@ export const Container = styled.div`
 `
 
 export const Content = styled.main`
-    height: 50%;
+    height: 100%;
     width: 80%;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     flex-direction: column;
+
+    span {
+        font-size: 40px;
+        color: white;
+        letter-spacing: 1.5px;
+    }
 `
 
 export const Timer = styled.div`
@@ -50,13 +56,36 @@ export const Timer = styled.div`
 
         color: #fff;
 
-        h1 {
+        h3 {
             font-size: small;
+            font-weight: bold;
         }
     }
 
 `
 
 export const SettingsContainer = styled.div`
+    height: 60px;
+    width: 60px;
 
+    
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    
+    font-size: 40px;
+    
+    background-color: ${({theme}) => theme.colors.blue_900};
+    color: white;
+
+    cursor: pointer;
+
+    transition: all .2s;
+
+    &:hover {
+        filter: brightness(0.9);
+    }
 `

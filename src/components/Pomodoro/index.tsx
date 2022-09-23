@@ -63,11 +63,12 @@ export const Pomodoro = () => {
   return (
     <Container>
       <Content>
+        <span>Pomodoro App</span>
         <Timer>
           <span>
             {minutesLeft < 10 ? `0${minutesLeft}` : minutesLeft}:
             {secondsLeft < 10 ? `0${secondsLeft}` : secondsLeft}
-            <h1>{mode === "work" ? "Work mode" : "Break mode"}</h1>
+            <h3>{mode === "work" ? "Work mode" : "Break mode"}</h3>
           </span>
         </Timer>
         <PlayButton isPlayed={isPlayed} setIsPlayed={setIsPlayed} />
