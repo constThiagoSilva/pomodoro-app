@@ -16,8 +16,10 @@ export const Overlay = styled.div`
 `;
 
 export const Content = styled.div`
-  width: 30%;
-  height: 20%;
+  width: 40%;
+  height: 30%;
+
+  padding: 20px;
 
   display: flex;
   justify-content: space-evenly;
@@ -27,31 +29,72 @@ export const Content = styled.div`
 
   border-radius: 10px;
 
+  position: relative;
+
   z-index: 999;
 
-  input {
-    width: 100px;
-    height: 100px;
+  .close-modal {
+    position: absolute;
 
-    padding: 20px;
+    width: 30px;
+    height: 30px;
 
-    border: 2px solid black;
-    border-radius: 10px;
+    top: 0;
+    right: 0;
 
-    font-weight: bold;
-    font-size: medium;
+    margin: 10px;
 
+    display: flex;
+    justify-content: center;
     align-items: center;
 
+    border-radius: 50%;
+
+    background-color: ${({theme}) => theme.colors.blue_900};
     color: white;
-    background-color: ${({ theme }) => theme.colors.blue_900};
 
-    -moz-appearance: textfield;
+    cursor: pointer;
+  }
 
-    &::-webkit-inner-spin-button,
-    &::-webkit-outer-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
+  .input-container {
+    height: 100%;
+
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+
+    span {
+        color: white;
+        font-size: xx-small;
+        font-weight: normal;
+    }
+
+    input {
+      width: 100px;
+      height: 100px;
+
+      padding: 20px;
+
+      border: 2px solid black;
+      border-radius: 10px;
+
+      font-weight: bold;
+      font-size: medium;
+
+      align-items: center;
+
+      color: white;
+      background-color: ${({ theme }) => theme.colors.blue_900};
+
+      -moz-appearance: textfield;
+
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
     }
   }
 `;
