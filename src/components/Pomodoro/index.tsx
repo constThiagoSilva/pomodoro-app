@@ -15,7 +15,6 @@ export const Pomodoro = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleCloseModal = () => {
-    setIsPlayed(false);
     setIsOpen(false);
   };
 
@@ -73,7 +72,10 @@ export const Pomodoro = () => {
         </Timer>
         <PlayButton isPlayed={isPlayed} setIsPlayed={setIsPlayed} />
         <SettingsContainer>
-          <Settings onClick={() => setIsOpen(true)} />
+          <Settings onClick={() => {
+            setIsPlayed(false);
+            setIsOpen(true)}
+        } />
         </SettingsContainer>
       </Content>
       <SettingsModal isOpen={isOpen} closeModal={handleCloseModal} />
